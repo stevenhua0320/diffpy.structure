@@ -32,6 +32,7 @@ import sys
 from contextlib import contextmanager
 
 import numpy
+from CifFile.yapps3_compiled_rt import YappsSyntaxError
 
 from diffpy.structure import Atom, Lattice, Structure
 from diffpy.structure.parsers import StructureParser
@@ -408,7 +409,7 @@ class P_cif(StructureParser):
                     # stop after reading the first structure
                     if self.stru is not None:
                         break
-        except (StarError, ValueError, IndexError) as err:
+        except (YappsSyntaxError, StarError, ValueError, IndexError) as err:
             exc_type, exc_value, exc_traceback = sys.exc_info()
             emsg = str(err).strip()
             e = StructureFormatError(emsg)
