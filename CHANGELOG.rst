@@ -4,6 +4,23 @@ Release notes
 
 .. current developments
 
+3.3.1
+=====
+
+**Added:**
+
+* Spelling check via Codespell in pre-commit
+* Coverage report in each PR
+
+**Changed:**
+
+* Use the names CODE-OF-CONDUCT.rst, docs and requirements/tests.txt according to the new group standard.
+
+**Fixed:**
+
+* Let ``diffpy.structure`` pass the tests with ``pycifrw`` installed from ``PyPI``.
+
+
 3.3.0
 =====
 
