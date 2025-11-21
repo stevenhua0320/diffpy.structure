@@ -33,8 +33,10 @@ Exceptions:
     * SymmetryError
 """
 
-# Interface definitions ------------------------------------------------------
 
+import sys
+
+import diffpy.structure as _structure
 from diffpy.structure.atom import Atom
 from diffpy.structure.lattice import Lattice
 from diffpy.structure.parsers import getParser
@@ -44,6 +46,28 @@ from diffpy.structure.structureerrors import LatticeError, StructureFormatError,
 
 # package version
 from diffpy.structure.version import __version__
+
+# Deprecations -------------------------------------------------------
+# Only use the backport for module shims
+
+
+# @deprecated
+# custom deprecator for diffpy.Structure module
+class DeprecatedStructureModule:
+    """Proxy for backward compatibility of diffpy.Structure."""
+
+    def __getattr__(self, name):
+        import warnings
+
+        warnings.warn(
+            "Module 'diffpy.Structure' is deprecated. Use 'diffpy.structure' instead.",
+            DeprecationWarning,
+            stacklevel=2,
+        )
+        return getattr(_structure, name)
+
+
+sys.modules["diffpy.Structure"] = DeprecatedStructureModule()
 
 # top level routines
 
