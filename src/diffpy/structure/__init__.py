@@ -48,7 +48,6 @@ from diffpy.structure.structureerrors import LatticeError, StructureFormatError,
 from diffpy.structure.version import __version__
 
 # Deprecations -------------------------------------------------------
-# Only use the backport for module shims
 
 
 # @deprecated
