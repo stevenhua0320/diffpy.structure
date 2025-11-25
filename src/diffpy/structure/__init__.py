@@ -59,7 +59,7 @@ class DeprecatedStructureModule:
         import warnings
 
         warnings.warn(
-            "Module 'diffpy.Structure' is deprecated and will be removed in version 3.8. "
+            "Module 'diffpy.Structure' is deprecated and will be removed in version 4.0. "
             "Use 'diffpy.structure' instead.",
             DeprecationWarning,
             stacklevel=2,
